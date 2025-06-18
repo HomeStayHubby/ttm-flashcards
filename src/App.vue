@@ -68,14 +68,15 @@ console.debug('Build timestamp:', __BUILD_TIMESTAMP__)
 
 <style scoped>
 .container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: clamp(1rem, 4vw, 2rem);
   font-family: system-ui, sans-serif;
   position: relative;
   background-color: #1a1a1a;
   min-height: 100vh;
   color: #fff;
+  width: 100%;
 }
 .splash {
   display: flex;
@@ -86,10 +87,11 @@ console.debug('Build timestamp:', __BUILD_TIMESTAMP__)
   gap: 2.5rem;
 }
 .splash h1 {
-  font-size: 2.2rem;
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
   color: #43cea2;
   margin-bottom: 1.5rem;
   text-align: center;
+  padding: 0 1rem;
 }
 .name-input {
   font-size: 1.3rem;

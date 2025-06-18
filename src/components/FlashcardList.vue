@@ -124,11 +124,13 @@ function proceed(stage) {
 
 .flashcards {
   display: grid;
-  grid-template-columns: repeat(3, 360px);
-  grid-auto-rows: 180px;
-  gap: 5rem;
-  padding: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
+  grid-auto-rows: minmax(160px, 180px);
+  gap: clamp(1rem, 5vw, 5rem);
+  padding: clamp(1rem, 3vw, 3rem);
   justify-content: center;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .flashcard {
@@ -149,9 +151,11 @@ function proceed(stage) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
   border-radius: 18px;
   transition: transform 0.6s, opacity 0.6s;
+  text-align: center;
+  overflow: auto;
 }
 
 .flashcard-front {
@@ -181,6 +185,11 @@ function proceed(stage) {
   transform: rotateY(0);
 }
 
+.flashcard-front h2 {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  margin: 0;
+}
+
 .flashcard-back ul {
   list-style-position: inside;
   padding: 0;
@@ -190,20 +199,18 @@ function proceed(stage) {
 }
 
 .flashcard-back li {
-  margin-bottom: 0.8em;
-  font-size: 0.9em;
+  margin-bottom: 0.6em;
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem);
   line-height: 1.4;
   padding-left: 1em;
   text-indent: -1em;
 }
 
 .card-back-title {
+  font-size: clamp(0.9rem, 2.8vw, 1.1rem);
   font-weight: bold;
-  text-align: center;
-  font-size: 1.25rem;
   margin-bottom: 1rem;
-  text-transform: capitalize;
-  letter-spacing: 0.5px;
+  color: #333;
 }
 
 .proceed-btn {
@@ -221,5 +228,17 @@ function proceed(stage) {
 .proceed-btn:disabled {
   background: #bdbdbd;
   cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .flashcards {
+    gap: 1.5rem;
+  }
+  
+  .proceed-btn {
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
 }
 </style>

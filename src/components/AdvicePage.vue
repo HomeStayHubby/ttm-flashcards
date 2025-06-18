@@ -56,30 +56,33 @@ const advice = computed(() => {
 }
 .advice-content {
   background: #fffde7;
-  border-radius: 32px;
+  border-radius: clamp(16px, 5vw, 32px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-  padding: 3.5rem 3rem 2.5rem 3rem;
+  padding: clamp(1.5rem, 5vw, 3.5rem) clamp(1.2rem, 4vw, 3rem);
   max-width: 700px;
-  width: 90vw;
-  min-height: 60vh;
+  width: 92vw;
+  min-height: min(85vh, 600px);
   text-align: left;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  margin: 1rem;
+  position: relative;
+  overflow-y: auto;
 }
 .advice-content h2 {
-  font-size: 2.2rem;
-  margin-bottom: 2rem;
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  margin-bottom: clamp(1rem, 4vw, 2rem);
   color: #f9a825;
   text-align: left;
   width: 100%;
 }
 .advice-text {
-  font-size: 1.25rem;
-  margin-bottom: 2.5rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
   color: #333;
-  line-height: 1.8;
+  line-height: 1.6;
   width: 100%;
 }
 .advice-text b {
@@ -112,8 +115,8 @@ const advice = computed(() => {
 }
 .logo-container {
   position: fixed;
-  right: 2vw;
-  bottom: 2vw;
+  right: clamp(1rem, 2vw, 2rem);
+  bottom: clamp(1rem, 2vw, 2rem);
   z-index: 2100;
   display: flex;
   flex-direction: column;
@@ -123,7 +126,22 @@ const advice = computed(() => {
 .brand-text {
   color: #000;
   font-family: Impact, "Arial Black", "Helvetica Neue", sans-serif;
-  font-size: 14px;
+  font-size: clamp(12px, 3vw, 14px);
   letter-spacing: -0.2px;
+}
+
+@media (max-width: 480px) {
+  .advice-logo {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .back-btn {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>
