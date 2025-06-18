@@ -1,7 +1,8 @@
 <script setup>
 import { computed } from 'vue'
 const props = defineProps({
-  stage: Object
+  stage: Object,
+  name: String
 })
 const emit = defineEmits(['back'])
 
@@ -9,7 +10,7 @@ const advice = computed(() => {
   if (!props.stage) return ''
   switch (props.stage.name) {
     case 'Precontemplation':
-      return `☀️ <b>Welcome, friend.</b><br><br>It's perfectly normal to feel comfortable where you are, and sometimes we don't see a need for change. <br><br>🌱 <b>Take a gentle moment</b> to reflect on your life and consider if there are areas where you could grow. Remember, awareness is the first step, and you are not alone in this journey.<br><br>💡 If you ever feel ready, know that support and understanding await you.`
+      return `☀️ <b>Welcome, ${props.name}.</b><br><br>It's perfectly normal to feel comfortable where you are, and sometimes we don't see a need for change. <br><br>🌱 <b>Take a gentle moment</b> to reflect on your life and consider if there are areas where you could grow. Remember, awareness is the first step, and you are not alone in this journey.<br><br>💡 If you ever feel ready, know that support and understanding await you.`
     case 'Contemplation':
       return `🤔 <b>You are beginning to recognize</b> that change might be beneficial, and that's a courageous step.<br><br>It's okay to feel uncertain or even conflicted. <br><br>⏳ <b>Take your time</b> to weigh the pros and cons, and talk to people you trust.<br><br>🚶 Every great journey begins with a single thought, and you are already on your way.`
     case 'Preparation':

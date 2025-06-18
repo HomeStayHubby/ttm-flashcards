@@ -58,7 +58,7 @@ function handleSplash() {
       </transition>
     </template>
     <template v-else>
-      <AdvicePage :stage="selectedStage" @back="handleBack" />
+      <AdvicePage :stage="selectedStage" :name="userName" @back="handleBack" />
     </template>
   </div>
 </template>
