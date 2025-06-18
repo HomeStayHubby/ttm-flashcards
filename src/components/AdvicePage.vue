@@ -72,6 +72,13 @@ const advice = computed(() => {
   position: relative;
   overflow-y: auto;
 }
+
+/* Add top margin for portrait orientation to avoid logo overlap */
+@media (orientation: portrait), (max-width: 768px) {
+  .advice-content {
+    margin-top: 150px;
+  }
+}
 .advice-content h2 {
   font-size: clamp(1.5rem, 5vw, 2.2rem);
   margin-bottom: clamp(1rem, 4vw, 2rem);
@@ -133,6 +140,14 @@ const advice = computed(() => {
   align-items: flex-end;
   gap: 0;
 }
+
+/* Portrait orientation or narrow viewport */
+@media (orientation: portrait), (max-width: 768px) {
+  .logo-container {
+    top: clamp(1rem, 2vw, 2rem);
+    bottom: auto; /* Remove bottom positioning */
+  }
+}
 .brand-text {
   color: #000;
   font-family: Impact, "Arial Black", "Helvetica Neue", sans-serif;
@@ -143,19 +158,19 @@ const advice = computed(() => {
 
 @media (max-width: 480px) {
   .advice-logo.character {
-    height: 100px;
+    height: 80px;
     margin-bottom: -8px;
   }
   
   .advice-logo.text {
-    height: 90px;
-    margin-top: -25px;
+    height: 70px;
+    margin-top: -20px;
     margin-bottom: -4px;
   }
   
   .brand-text {
-    margin-top: -20px;
-    font-size: 16px;
+    margin-top: -15px;
+    font-size: 14px;
   }
   
   .back-btn {
@@ -164,6 +179,16 @@ const advice = computed(() => {
     font-size: 1rem;
     display: flex;
     justify-content: center;
+  }
+  
+  .logo-container {
+    top: 0.8rem;
+    right: 0.8rem;
+  }
+  
+  .advice-content {
+    margin-top: 120px; /* Reduced top margin for smaller screens */
+    padding-top: 1.2rem;
   }
 }
 </style>
