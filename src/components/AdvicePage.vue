@@ -34,7 +34,7 @@ const advice = computed(() => {
       <p class="advice-text" v-html="advice"></p>
       <button class="back-btn" @click="emit('back')">Back to Selection</button>
     </div>
-    <img class="advice-logo" src="/care.mrchristian.fyi/ite.png" alt="logo" />
+    <img class="advice-logo" src="/ite.png" alt="logo" />
   </div>
 </template>
 
