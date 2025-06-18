@@ -35,7 +35,8 @@ const advice = computed(() => {
       <button class="back-btn" @click="emit('back')">Back to Selection</button>
     </div>
     <div class="logo-container">
-      <img class="advice-logo" src="/ite.png" alt="logo" />
+      <img class="advice-logo character" src="/MrChristianCharTeach.png" alt="Mr Christian character" />
+      <img class="advice-logo text" src="/MrChristianText.png" alt="Mr Christian text" />
       <div class="brand-text"><i><b>Attitude</b>Is<b>Everything</b></i>™</div>
     </div>
   </div>
@@ -105,14 +106,23 @@ const advice = computed(() => {
   background: #ffe082;
 }
 .advice-logo {
-  width: 64px;
-  height: 64px;
-  opacity: 0.85;
+  width: auto;
+  opacity: 0.95;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-  background: #fff;
-  padding: 4px;
+  background: transparent;
 }
+
+.advice-logo.character {
+  height: 130px;
+  margin-bottom: -10px; /* Add negative bottom margin to reduce space */
+}
+
+.advice-logo.text {
+  height: 150px;
+  margin-bottom: -5px; /* Add negative bottom margin to reduce space */
+  margin-top: -30px; /* Further increased negative margin to pull elements closer */
+}
+
 .logo-container {
   position: fixed;
   right: clamp(1rem, 2vw, 2rem);
@@ -121,19 +131,31 @@ const advice = computed(() => {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 8px;
+  gap: 0;
 }
 .brand-text {
   color: #000;
   font-family: Impact, "Arial Black", "Helvetica Neue", sans-serif;
-  font-size: clamp(12px, 3vw, 14px);
+  font-size: clamp(16px, 3vw, 20px);
   letter-spacing: -0.2px;
+  margin-top: -25px; /* Further increased negative margin to pull elements closer */
 }
 
 @media (max-width: 480px) {
-  .advice-logo {
-    width: 48px;
-    height: 48px;
+  .advice-logo.character {
+    height: 100px;
+    margin-bottom: -8px;
+  }
+  
+  .advice-logo.text {
+    height: 90px;
+    margin-top: -25px;
+    margin-bottom: -4px;
+  }
+  
+  .brand-text {
+    margin-top: -20px;
+    font-size: 16px;
   }
   
   .back-btn {

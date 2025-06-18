@@ -34,7 +34,6 @@ function handleSplash() {
 // Force cache invalidation with build timestamp
 console.debug('Build timestamp:', __BUILD_TIMESTAMP__)
 </script>
-
 <template>
   <div class="container">
     <template v-if="showSplash">
