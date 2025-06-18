@@ -120,24 +120,22 @@ function proceed(stage) {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1rem;
 }
 
 .flashcards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
-  grid-auto-rows: minmax(160px, 180px);
-  gap: clamp(1rem, 5vw, 5rem);
-  padding: clamp(1rem, 3vw, 3rem);
-  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   width: 100%;
   max-width: 1200px;
 }
 
 .flashcard {
   position: relative;
-  width: 100%;
-  height: 100%;
+  aspect-ratio: 16/10;
   cursor: pointer;
+  width: 100%;
 }
 
 .flashcard-front,
@@ -228,6 +226,24 @@ function proceed(stage) {
 .proceed-btn:disabled {
   background: #bdbdbd;
   cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+  .flashcards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .flashcards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .flashcard {
+    aspect-ratio: 16/9;
+  }
 }
 
 @media (max-width: 768px) {
