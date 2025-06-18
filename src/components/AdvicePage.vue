@@ -34,7 +34,10 @@ const advice = computed(() => {
       <p class="advice-text" v-html="advice"></p>
       <button class="back-btn" @click="emit('back')">Back to Selection</button>
     </div>
-    <img class="advice-logo" src="/ite.png" alt="logo" />
+    <div class="logo-container">
+      <img class="advice-logo" src="/ite.png" alt="logo" />
+      <div class="brand-text"><i><b>Attitude</b>Is<b>Everything</b></i>™</div>
+    </div>
   </div>
 </template>
 
@@ -99,16 +102,28 @@ const advice = computed(() => {
   background: #ffe082;
 }
 .advice-logo {
-  position: fixed;
-  right: 2vw;
-  bottom: 2vw;
   width: 64px;
   height: 64px;
-  z-index: 2100;
   opacity: 0.85;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
   background: #fff;
   padding: 4px;
+}
+.logo-container {
+  position: fixed;
+  right: 2vw;
+  bottom: 2vw;
+  z-index: 2100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+.brand-text {
+  color: #000;
+  font-family: Impact, "Arial Black", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  letter-spacing: -0.2px;
 }
 </style>

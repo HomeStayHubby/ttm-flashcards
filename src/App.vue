@@ -30,6 +30,9 @@ function handleSplash() {
   }
   showSplash.value = false
 }
+
+// Force cache invalidation with build timestamp
+console.debug('Build timestamp:', __BUILD_TIMESTAMP__)
 </script>
 
 <template>
@@ -70,6 +73,9 @@ function handleSplash() {
   padding: 2rem;
   font-family: system-ui, sans-serif;
   position: relative;
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  color: #fff;
 }
 .splash {
   display: flex;
@@ -81,7 +87,7 @@ function handleSplash() {
 }
 .splash h1 {
   font-size: 2.2rem;
-  color: #185a9d;
+  color: #43cea2;
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -91,12 +97,12 @@ function handleSplash() {
   border-radius: 14px;
   border: 2px solid #43cea2;
   outline: none;
-  background: #f9fbe7;
-  color: #333;
+  background: #2a2a2a;
+  color: #fff;
   margin-bottom: 1.5rem;
-  box-shadow: 0 2px 12px rgba(67,206,162,0.08);
+  box-shadow: 0 2px 12px rgba(67,206,162,0.15);
   text-align: center;
-  transition: border 0.2s;
+  transition: all 0.2s;
 }
 .name-input:focus {
   border: 2px solid #185a9d;

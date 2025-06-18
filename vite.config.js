@@ -5,4 +5,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/care.mrchristian.fyi/' : '/',
   plugins: [vue()],
+  define: {
+    __BUILD_TIMESTAMP__: JSON.stringify(new Date().toISOString())
+  }
 })
