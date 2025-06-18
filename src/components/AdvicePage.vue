@@ -33,6 +33,7 @@ const advice = computed(() => {
       <p class="advice-text" v-html="advice"></p>
       <button class="back-btn" @click="emit('back')">Back to Selection</button>
     </div>
+    <img class="advice-logo" src="/vite.svg" alt="logo" />
   </div>
 </template>
 
@@ -95,5 +96,18 @@ const advice = computed(() => {
 }
 .back-btn:hover {
   background: #ffe082;
+}
+.advice-logo {
+  position: fixed;
+  right: 2vw;
+  bottom: 2vw;
+  width: 64px;
+  height: 64px;
+  z-index: 2100;
+  opacity: 0.85;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  background: #fff;
+  padding: 4px;
 }
 </style>
