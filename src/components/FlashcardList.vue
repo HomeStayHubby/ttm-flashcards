@@ -5,8 +5,10 @@ const emit = defineEmits(['proceed'])
 const stages = [
   {
     name: 'Precontemplation',
+    front: 'I feel indifferent or fine.',
     signs: [
-      'I feel like I don’t have a problem or don’t need to change.',
+      'Precontemplation Stage',
+      'I feel like I don\'t have a problem or don\'t need to change.',
       'I feel comfortable with my current behavior.',
       'I feel that change is not necessary for me right now.'
     ],
@@ -14,34 +16,42 @@ const stages = [
   },
   {
     name: 'Contemplation',
+    front: 'I feel unsure, I think I want to do things differently but not sure how or if I should',
     signs: [
+      'Contemplation Stage',
       'I feel uncertain about changing.',
-      'I feel like I should change, but I’m not sure how or when.',
+      'I feel like I should change, but I\'m not sure how or when.',
       'I feel both the benefits and barriers of changing.'
     ],
     advice: 'Weigh the benefits and barriers. Consider what motivates you to change.'
   },
   {
     name: 'Preparation',
+    front: 'I\'m ready for a change, maybe a little scared',
     signs: [
+      'Preparation Stage',
       'I feel ready to make a change soon.',
-      'I feel like I’m making plans or small steps toward change.',
+      'I feel like I\'m making plans or small steps toward change.',
       'I feel hopeful and a bit nervous about starting.'
     ],
     advice: 'Set clear, achievable goals. Make a concrete plan and seek support.'
   },
   {
     name: 'Action',
+    front: 'I\'m taking steps to make changes, it\'s not easy, but I can do it!',
     signs: [
-      'I feel proud that I’m making changes.',
+      'Action Stage',
+      'I feel proud that I\'m making changes.',
       'I feel challenged but motivated to keep going.',
-      'I feel like I’m actively working on new habits.'
+      'I feel like I\'m actively working on new habits.'
     ],
     advice: 'Stay focused and committed. Celebrate progress and manage obstacles.'
   },
   {
     name: 'Maintenance',
+    front: 'I think I\'m doing well, this is the new Me!',
     signs: [
+      'Maintenance Stage',
       'I feel confident in my new behavior.',
       'I feel determined to avoid slipping back.',
       'I feel like my new habits are becoming part of my life.'
@@ -50,7 +60,9 @@ const stages = [
   },
   {
     name: 'Termination',
+    front: 'I am fully confident of the new me. I think I can help others too.',
     signs: [
+      'Termination Stage',
       'I feel no temptation to return to my old ways.',
       'I feel strong and in control of my choices.',
       'I feel like this change is now a natural part of who I am.'
@@ -81,19 +93,24 @@ function proceed(stage) {
         :class="{ flipped: flipped[idx] }"
         @click="flipCard(idx)"
       >
-        <div class="flashcard-inner">
-          <div class="flashcard-front">
-            <h2>{{ stage.name }}</h2>
-          </div>
-          <div class="flashcard-back">
-            <ul>
-              <li v-for="sign in stage.signs" :key="sign">{{ sign }}</li>
-            </ul>
-          </div>
+        <div class="flashcard-front">
+          <h2>{{ stage.front }}</h2>
+        </div>
+        <div class="flashcard-back">
+          <div class="card-back-title">{{ stage.signs[0] }}</div>
+          <ul>
+            <li v-for="sign in stage.signs.slice(1)" :key="sign">{{ sign }}</li>
+          </ul>
         </div>
       </div>
     </div>
-    <button class="proceed-btn" @click="proceed(stages.find((_,i)=>flipped[i]))" :disabled="!flipped.includes(true)">Proceed</button>
+    <button 
+      class="proceed-btn" 
+      @click="proceed(stages.find((_,i)=>flipped[i]))" 
+      :disabled="!flipped.includes(true)"
+    >
+      Proceed
+    </button>
   </div>
 </template>
 
@@ -178,6 +195,15 @@ function proceed(stage) {
   line-height: 1.4;
   padding-left: 1em;
   text-indent: -1em;
+}
+
+.card-back-title {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
 }
 
 .proceed-btn {
