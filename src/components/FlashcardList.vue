@@ -117,25 +117,27 @@ function proceed(stage) {
 <style scoped>
 .flashcard-list {
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
 }
 
 .flashcards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
   width: 100%;
-  max-width: 1200px;
+  padding: 1rem;
 }
 
 .flashcard {
   position: relative;
-  aspect-ratio: 16/10;
+  height: 200px;
   cursor: pointer;
-  width: 100%;
+  perspective: 1000px;
 }
 
 .flashcard-front,
@@ -149,11 +151,13 @@ function proceed(stage) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: clamp(1rem, 3vw, 1.5rem);
+  padding: 1.25rem;
   border-radius: 18px;
-  transition: transform 0.6s, opacity 0.6s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
   text-align: center;
-  overflow: auto;
 }
 
 .flashcard-front {
@@ -228,33 +232,34 @@ function proceed(stage) {
   cursor: not-allowed;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .flashcards {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
-  }
-}
-
-@media (max-width: 700px) {
-  .flashcards {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .flashcard {
-    aspect-ratio: 16/9;
   }
 }
 
 @media (max-width: 768px) {
+  .flashcard-list {
+    padding: 1rem 0.5rem;
+  }
+  
   .flashcards {
-    gap: 1.5rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .flashcard {
+    height: 180px;
   }
   
   .proceed-btn {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     padding: 0.8rem 2rem;
     font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
   }
 }
 </style>
