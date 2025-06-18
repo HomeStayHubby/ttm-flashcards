@@ -1,6 +1,6 @@
 # TTM Flashcards
 
-<!-- Trigger deployment: build timestamp
+<!-- Trigger deployment: build timestamp 2 -->
 An interactive flashcard application built with Vue 3 and Vite to help understand the Transtheoretical Model (TTM) of behavior change. This educational tool presents the six stages of change with interactive cards that reveal detailed insights about each stage.
 
 ## Features
